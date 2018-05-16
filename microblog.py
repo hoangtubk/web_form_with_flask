@@ -1,10 +1,7 @@
-"""
- * Created by PyCharm.
- * User: tuhoangbk
- * Date: 10/05/2018
- * Time: 16:17
- * Have a nice day　:*)　:*)
-"""
-from app import app
+from app import app, db
+from app.models import User, Post
 
-print('ahihi')
+
+@app.shell_context_processor
+def make_shell_context():
+    return {'db': db, 'User': User, 'Post': Post}
